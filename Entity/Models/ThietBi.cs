@@ -6,13 +6,20 @@ using System.Text;
 
 namespace Entity.Models
 {
-    public class Student
+    public class ThietBi
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public int name { get; set; }
+        [Required]
+        public float ViTriX { get; set; }
+
+        [Required]
+        public float ViTriY { get; set; }
+
+        [Required]
+        public int LoaiId { get; set; }
+
     }
 }

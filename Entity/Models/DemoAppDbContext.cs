@@ -7,7 +7,8 @@ namespace Entity.Models
 {
    public class DemoAppDbContext : DbContext
     {
-        public DbSet<Student> Students { get; set; }
+        public DbSet<ThietBi> ThietBis { get; set; }
+        public DbSet<LoaiThietBi> LoaiThietBis { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

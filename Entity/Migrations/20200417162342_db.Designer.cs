@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity.Migrations
 {
     [DbContext(typeof(DemoAppDbContext))]
-    [Migration("20200415070427_db")]
+    [Migration("20200417162342_db")]
     partial class db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,19 +20,43 @@ namespace Entity.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Entity.Models.Student", b =>
+            modelBuilder.Entity("Entity.Models.LoaiThietBi", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("name")
+                    b.Property<string>("KiHieu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TenLoai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LoaiThietBis");
+                });
+
+            modelBuilder.Entity("Entity.Models.ThietBi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("LoaiId")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
+                    b.Property<float>("ViTriX")
+                        .HasColumnType("real");
 
-                    b.ToTable("Students");
+                    b.Property<float>("ViTriY")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ThietBis");
                 });
 #pragma warning restore 612, 618
         }
