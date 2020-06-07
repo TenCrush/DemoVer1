@@ -12,7 +12,7 @@ namespace Entity.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=TENHANDSOME\SQLEXPRESS;Initial Catalog=DemoApp;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=TENHANDSOME\SQLEXPRESS;Initial Catalog=DemoApp;Integrated Security=True;User ID = sa; Password=Abc@4321");
         }
     }
 }
